@@ -2,6 +2,7 @@ package naman14.droidcon.viewanimations;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
@@ -27,7 +28,9 @@ public class WaveAnimationView extends View {
 
         paint = new Paint();
         path = new Path();
-        paint.setStyle(Paint.Style.STROKE);
+        paint.setStyle(Paint.Style.FILL);
+        paint.setColor(Color.parseColor("#303F9F"));
+        paint.setAntiAlias(true);
         paint.setStrokeWidth(10);
         post(animate);
     }
@@ -41,11 +44,13 @@ public class WaveAnimationView extends View {
     private void calculatePath() {
         path.reset();
         getWaveOffset();
+        path.moveTo(getLeft(), getBottom());
         float y;
-        for (float x = 0; x < getWidth(); x++) {
+        for (float x = 0; x <= getWidth(); x++) {
             y = (float) (150 * Math.sin((PI2 / (getWidth() * 1.5) * x) + offset) + 800);
             path.lineTo(x, y);
         }
+        path.lineTo(getRight(), getBottom());
     }
 
     private Runnable animate = new Runnable() {
