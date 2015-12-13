@@ -4,9 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Path;
 import android.graphics.Point;
-import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -19,8 +17,6 @@ public class CustomView extends View {
     int varRadius = 0;
     int radius = 500;
     Point centerPoint = new Point(600, 600);
-
-    boolean sparkAnimation = false;
 
     public CustomView(Context context) {
         super(context);
@@ -44,17 +40,6 @@ public class CustomView extends View {
         paint.setStrokeWidth(5);
 
         drawCirclePoints(canvas, 8, varRadius);
-
-        paint.setColor(Color.BLACK);
-
-        if (sparkAnimation) {
-            Path arcPath = new Path();
-            arcPath.moveTo(centerPoint.x, centerPoint.y + radius);
-            RectF oval = new RectF();
-            canvas.drawArc(oval, 180f, 270f, true, paint);
-//            canvas.drawLine(centerPoint.x, centerPoint.y+radius, centerPoint.x-400, centerPoint.y+450, paint);
-            sparkAnimation = false;
-        }
 
     }
 
@@ -87,22 +72,9 @@ public class CustomView extends View {
         }
     };
 
-    private Runnable anmateSparks = new Runnable() {
-        @Override
-        public void run() {
-            postDelayed(this, 200);
-            sparkAnimation = true;
-            invalidate();
-        }
-    };
-
     public void animateSpikes() {
         removeCallbacks(animateSpikes);
         post(animateSpikes);
-
-        removeCallbacks(anmateSparks);
-        post(anmateSparks);
-
 
     }
 }

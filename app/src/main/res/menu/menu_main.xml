@@ -1,16 +1,35 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
 
-    <item android:id="@+id/action_line_animation_simple_runnable" android:title="Simple line runnable animation"
-        android:orderInCategory="100" app:showAsAction="never" />
+    <item
+        android:id="@+id/action_line_animation_simple_runnable"
+        android:orderInCategory="100"
+        android:title="Simple line runnable animation"
+        app:showAsAction="never" />
 
-    <item android:id="@+id/action_view_wheel_spikes" android:title="Wheel spikes View"
-        android:orderInCategory="100" app:showAsAction="never" />
+    <item
+        android:id="@+id/action_view_wheel_spikes"
+        android:orderInCategory="100"
+        android:title="Wheel spikes View"
+        app:showAsAction="never" />
 
-    <item android:id="@+id/action_view_animation_wheel_spikes" android:title="Wheel spikes runnable animation"
-        android:orderInCategory="100" app:showAsAction="never" />
+    <item
+        android:id="@+id/action_view_animation_wheel_spikes"
+        android:orderInCategory="100"
+        android:title="Wheel spikes runnable animation"
+        app:showAsAction="never" />
 
-    <item android:id="@+id/action_music_visualizer" android:title="Music visualizer"
-        android:orderInCategory="100" app:showAsAction="never" />
+    <item
+        android:id="@+id/action_music_visualizer"
+        android:orderInCategory="100"
+        android:title="Music visualizer"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_wave_animation"
+        android:orderInCategory="100"
+        android:title="Wave animation"
+        app:showAsAction="never" />
 </menu>

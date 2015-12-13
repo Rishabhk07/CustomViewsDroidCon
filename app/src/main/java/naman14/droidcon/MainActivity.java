@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -38,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.action_music_visualizer:
                 startActivity(new Intent(MainActivity.this, ViewHolderActivity.class).putExtra("layout_id", R.layout.activity_music_visualizer));
+                break;
+            case R.id.action_wave_animation:
+                startActivity(new Intent(MainActivity.this, ViewHolderActivity.class).putExtra("layout_id", R.layout.activity_wave_animation_view));
                 break;
         }
 
