@@ -16,6 +16,27 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+//        TextView textView = (TextView) findViewById(R.id.lol);
+//        TextView textView2 = (TextView) findViewById(R.id.lol2);
+//
+//        ObjectAnimator anim = ObjectAnimator.ofFloat(textView, "translationX", 0f, 800f);
+//        anim.setDuration(3000);
+//        anim.start();
+//
+//        Path path = new Path();
+//        path.moveTo(300, 300);
+//        path.lineTo(1000, 300);
+//        path.lineTo(1000, 1000);
+//        path.lineTo(300, 1000);
+//        path.lineTo(300, 300);
+//        path.close();
+//
+//        ValueAnimator pathAnimator = ObjectAnimator.ofFloat(textView2, "x", "y", path);
+//        pathAnimator.setDuration(3000);
+//        pathAnimator.start();
+
+
     }
 
     @Override
