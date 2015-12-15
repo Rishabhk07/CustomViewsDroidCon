@@ -13,19 +13,15 @@ import android.view.View;
  */
 public class CustomProgressBar extends View {
 
-    Paint paint1 = new Paint();
-    Paint paint2 = new Paint();
-    RectF oval1 = new RectF();
-    RectF oval2 = new RectF();
+    Paint paint = new Paint();
+    RectF oval = new RectF();
 
     int sweepAngle1 = 220;
     int sweepAngle2 = 150;
+    int delta = 5;
 
     int startAngle1 = 120;
     int startAngle2 = 0;
-
-    boolean increasing1 = true;
-    boolean increasing2 = true;
 
     public CustomProgressBar(Context context) {
         super(context);
@@ -33,15 +29,7 @@ public class CustomProgressBar extends View {
 
     public CustomProgressBar(Context context, AttributeSet attrs) {
         super(context, attrs);
-
-        paint1.setColor(Color.parseColor("#009688"));
-        paint1.setStyle(Paint.Style.STROKE);
-        paint1.setStrokeWidth(10);
-
-        paint2.setColor(Color.parseColor("#77009688"));
-        paint2.setStyle(Paint.Style.STROKE);
-        paint2.setStrokeWidth(5);
-
+        paint.setStyle(Paint.Style.STROKE);
         post(animate);
     }
 
@@ -49,11 +37,15 @@ public class CustomProgressBar extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        oval1.set(getWidth() / 2 - 120, getHeight() / 2 - 120, getWidth() / 2 + 120, getHeight() / 2 + 120);
-        oval2.set(getWidth() / 2 - 80, getHeight() / 2 - 80, getWidth() / 2 + 80, getHeight() / 2 + 80);
+        paint.setColor(Color.parseColor("#009688"));
+        paint.setStrokeWidth(12);
+        oval.set(getWidth() / 2 - 150, getHeight() / 2 - 150, getWidth() / 2 + 150, getHeight() / 2 + 150);
+        canvas.drawArc(oval, startAngle1, sweepAngle1, false, paint);
 
-        canvas.drawArc(oval1, startAngle1, sweepAngle1, false, paint1);
-        canvas.drawArc(oval2, startAngle2, sweepAngle2, false, paint2);
+        paint.setColor(Color.parseColor("#99009688"));
+        paint.setStrokeWidth(7);
+        oval.set(getWidth() / 2 - 100, getHeight() / 2 - 100, getWidth() / 2 + 100, getHeight() / 2 + 100);
+        canvas.drawArc(oval, startAngle2, sweepAngle2, false, paint);
 
     }
 
@@ -62,32 +54,27 @@ public class CustomProgressBar extends View {
         public void run() {
 
             if (startAngle1 < 360)
-                startAngle1 += 20;
+                startAngle1 += 10;
             else startAngle1 = 0;
 
             if (startAngle2 < 360)
-                startAngle2 += 20;
+                startAngle2 += 10;
             else startAngle2 = 0;
 
-            if (increasing1) {
-                if (sweepAngle1 < 220) {
-                    sweepAngle1 += 10;
-                } else increasing1 = false;
-            } else {
-                if (sweepAngle1 > 0) {
-                    sweepAngle1 -= 10;
-                } else increasing1 = true;
+            if (sweepAngle1 > 220) {
+                delta = -5;
+            } else if (sweepAngle1 < 5) {
+                delta = 5;
             }
+            sweepAngle1 += delta;
 
-            if (increasing2) {
-                if (sweepAngle2 < 150) {
-                    sweepAngle2 += 10;
-                } else increasing2 = false;
-            } else {
-                if (sweepAngle2 > 0) {
-                    sweepAngle2 -= 10;
-                } else increasing2 = true;
+            if (sweepAngle2 > 150) {
+                delta = -5;
+            } else if (sweepAngle1 < 5) {
+                delta = 5;
             }
+            sweepAngle2 += delta;
+
 
             invalidate();
             postDelayed(this, 10);
