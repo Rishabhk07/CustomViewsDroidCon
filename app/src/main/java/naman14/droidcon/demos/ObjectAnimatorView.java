@@ -1,4 +1,4 @@
-package naman14.droidcon.viewanimations;
+package naman14.droidcon.demos;
 
 import android.animation.Animator;
 import android.animation.Keyframe;
@@ -27,7 +27,6 @@ public class ObjectAnimatorView extends View {
 
     public ObjectAnimatorView(Context context, AttributeSet attrs) {
         super(context, attrs);
-
         paint.setColor(Color.parseColor("#009688"));
         startAnimation();
     }
@@ -38,26 +37,22 @@ public class ObjectAnimatorView extends View {
         canvas.drawCircle(getWidth() / 2, getHeight() / 2, radius, paint);
     }
 
-    public void setRadius(float value) {
-        this.radius = value;
-        invalidate();
-    }
 
     public void startAnimation() {
 
-        if (radiusAnimator == null || !radiusAnimator.isRunning()) {
+        Keyframe kf0 = Keyframe.ofFloat(0f, 0f);
+        Keyframe kf2 = Keyframe.ofFloat(0.5f, 200f);
+        Keyframe kf1 = Keyframe.ofFloat(1f, 400f);
 
-            // Define what value the radius is supposed to have at specific time values
-            Keyframe kf0 = Keyframe.ofFloat(0f, 0f);
-            Keyframe kf2 = Keyframe.ofFloat(0.5f, 200f);
-            Keyframe kf1 = Keyframe.ofFloat(1f, 400f);
+        PropertyValuesHolder pvhRotation = PropertyValuesHolder.ofKeyframe("radius", kf0, kf1, kf2);
+        radiusAnimator = ObjectAnimator.ofPropertyValuesHolder(this, pvhRotation);
+        radiusAnimator.setInterpolator(new LinearInterpolator());
+        radiusAnimator.setDuration(2000);
+        radiusAnimator.start();
+    }
 
-            //make sure to have setRadius method if we pass 'radius' as property
-            PropertyValuesHolder pvhRotation = PropertyValuesHolder.ofKeyframe("radius", kf0, kf1, kf2);
-            radiusAnimator = ObjectAnimator.ofPropertyValuesHolder(this, pvhRotation);
-            radiusAnimator.setInterpolator(new LinearInterpolator());
-            radiusAnimator.setDuration(2000);
-            radiusAnimator.start();
-        }
+    public void setRadius(float value) {
+        this.radius = value;
+        invalidate();
     }
 }

@@ -55,9 +55,6 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_view_animation_wheel_spikes:
                 startActivity(new Intent(MainActivity.this, ViewHolderActivity.class).putExtra("layout_id", R.layout.activity_view_animation_wheel_spikes));
                 break;
-            case R.id.action_view_wheel_spikes:
-                startActivity(new Intent(MainActivity.this, ViewHolderActivity.class).putExtra("layout_id", R.layout.activity_view_sheel_spikes));
-                break;
             case R.id.action_music_visualizer:
                 startActivity(new Intent(MainActivity.this, ViewHolderActivity.class).putExtra("layout_id", R.layout.activity_music_visualizer));
                 break;

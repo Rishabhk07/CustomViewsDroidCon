@@ -10,12 +10,6 @@
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/action_view_wheel_spikes"
-        android:orderInCategory="100"
-        android:title="Wheel spikes View"
-        app:showAsAction="never" />
-
-    <item
         android:id="@+id/action_view_animation_wheel_spikes"
         android:orderInCategory="100"
         android:title="Wheel spikes runnable animation"

@@ -1,4 +1,4 @@
-package naman14.droidcon.viewanimations;
+package naman14.droidcon.demos;
 
 import android.content.Context;
 import android.graphics.Canvas;
