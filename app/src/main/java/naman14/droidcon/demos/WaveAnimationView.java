@@ -8,9 +8,6 @@ import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.View;
 
-/**
- * Created by naman on 10/12/15.
- */
 public class WaveAnimationView extends View {
 
     private Paint paint;

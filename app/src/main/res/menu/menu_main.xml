@@ -22,6 +22,12 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/action_object_animator"
+        android:orderInCategory="100"
+        android:title="Object animator"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/action_wave_animation"
         android:orderInCategory="100"
         android:title="Wave animation"

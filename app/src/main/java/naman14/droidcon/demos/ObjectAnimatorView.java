@@ -12,9 +12,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 
-/**
- * Created by naman on 14/12/15.
- */
 public class ObjectAnimatorView extends View {
 
     Paint paint = new Paint();

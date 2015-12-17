@@ -58,6 +58,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_music_visualizer:
                 startActivity(new Intent(MainActivity.this, ViewHolderActivity.class).putExtra("layout_id", R.layout.activity_music_visualizer));
                 break;
+            case R.id.action_object_animator:
+                startActivity(new Intent(MainActivity.this, ViewHolderActivity.class).putExtra("layout_id", R.layout.activity_object_animator));
+                break;
             case R.id.action_wave_animation:
                 startActivity(new Intent(MainActivity.this, ViewHolderActivity.class).putExtra("layout_id", R.layout.activity_wave_animation_view));
                 break;
