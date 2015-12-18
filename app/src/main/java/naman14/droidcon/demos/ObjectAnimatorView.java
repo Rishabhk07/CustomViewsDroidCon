@@ -38,8 +38,8 @@ public class ObjectAnimatorView extends View {
     public void startAnimation() {
 
         Keyframe kf0 = Keyframe.ofFloat(0f, 0f);
-        Keyframe kf2 = Keyframe.ofFloat(0.5f, 200f);
-        Keyframe kf1 = Keyframe.ofFloat(1f, 400f);
+        Keyframe kf2 = Keyframe.ofFloat(0.5f, 100f);
+        Keyframe kf1 = Keyframe.ofFloat(1f, 300f);
 
         PropertyValuesHolder pvhRotation = PropertyValuesHolder.ofKeyframe("radius", kf0, kf1, kf2);
         radiusAnimator = ObjectAnimator.ofPropertyValuesHolder(this, pvhRotation);
